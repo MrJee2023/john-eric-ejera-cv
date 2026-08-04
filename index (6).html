@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Eric Ejera — IT Administrator &amp; IT Support Specialist</title>
+<meta name="description" content="John Eric Ejera — IT Administrator and IT Support Specialist based in the Philippines. Microsoft 365, Google Workspace, networking, cloud, web development, and internal/external technical support for businesses worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#0F172A;
+    --secondary:#2563EB;
+    --accent:#06B6D4;
+    --bg:#F8FAFC;
+    --text:#111827;
+    --text-soft:#4B5563;
+    --card:rgba(255,255,255,0.65);
+    --card-solid:#ffffff;
+    --border:rgba(15,23,42,0.08);
+    --grad: linear-gradient(120deg, #2563EB, #06B6D4);
+    --success:#10B981;
+    --shadow: 0 20px 50px -20px rgba(15,23,42,0.25);
+    --radius: 18px;
+    --nav-h: 76px;
+  }
+  [data-theme="dark"]{
+    --bg:#020617;
+    --text:#E5E7EB;
+    --text-soft:#94A3B8;
+    --card:rgba(15,23,42,0.55);
+    --card-solid:#0B1224;
+    --border:rgba(226,232,240,0.08);
+    --shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    transition:background .4s ease, color .4s ease;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Poppins', sans-serif; letter-spacing:-0.02em;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  section{padding:120px 8vw;}
+  @media (max-width:900px){ section{padding:90px 6vw;} }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--secondary); font-weight:600; display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{content:""; width:18px; height:2px; background:var(--grad); display:inline-block; border-radius:2px;}
+  .dot-live{width:8px; height:8px; border-radius:50%; background:var(--success); box-shadow:0 0 0 4px rgba(16,185,129,0.2); animation:pulse 2s infinite; flex-shrink:0;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.4;}}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.6rem); margin:.6rem 0 .8rem; font-weight:700;}
+  .section-head p{color:var(--text-soft); font-size:1.02rem;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px;
+    font-weight:600; font-size:.92rem; cursor:pointer; border:1px solid transparent; transition:.25s ease;
+  }
+  .btn-primary{background:var(--grad); color:#fff; box-shadow:0 12px 28px -10px rgba(37,99,235,0.55);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 34px -10px rgba(37,99,235,0.65);}
+  .btn-ghost{background:transparent; border:1px solid var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--secondary); color:var(--secondary);}
+  .btn-sm{padding:9px 18px; font-size:.82rem;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1000; height:var(--nav-h);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 6vw; backdrop-filter:blur(16px) saturate(160%);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid var(--border); transition:background .4s;
+  }
+  .logo{font-weight:800; font-size:1.05rem; letter-spacing:-0.01em;}
+  .logo span{color:var(--secondary);}
+  nav.menu{display:flex; gap:34px;}
+  nav.menu a{font-size:.9rem; font-weight:500; color:var(--text-soft); position:relative; padding:6px 0;}
+  nav.menu a:hover{color:var(--text);}
+  nav.menu a::after{content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--grad); transition:width .25s;}
+  nav.menu a:hover::after{width:100%;}
+  .nav-actions{display:flex; align-items:center; gap:14px;}
+  .theme-toggle{
+    width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--card);
+    display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.05rem;
+  }
+  .burger{display:none; width:40px; height:40px; border-radius:10px; border:1px solid var(--border); background:var(--card); cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px;}
+  .burger span{width:18px; height:2px; background:var(--text); display:block; border-radius:2px;}
+  @media (max-width:900px){
+    nav.menu{position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); flex-direction:column; padding:18px 8vw 30px; gap:18px; border-bottom:1px solid var(--border);
+      transform:translateY(-130%); opacity:0; transition:.3s ease; pointer-events:none;}
+    nav.menu.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+    .burger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+
+   #netcanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55;}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;width:100%;}
+  .hero-inner{max-width:760px;}
+  .hero-photo-wrap{position:relative;display:flex;justify-content:center;align-items:center;}
+  .hero-photo-glow{
+    position:absolute;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle,rgba(6,182,212,0.28),rgba(37,99,235,0.14) 55%,transparent 75%);
+    filter:blur(10px);
+  }
+  .hero{
+    min-height:100vh; display:flex; align-items:center; padding-top:var(--nav-h);
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:-2;
+    background: radial-gradient(60% 50% at 80% 15%, rgba(37,99,235,0.16), transparent 70%),
+                radial-gradient(45% 40% at 10% 90%, rgba(6,182,212,0.14), transparent 70%);
+  }
+  #particle-canvas{display:none;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center; width:100%;}
+  @media (max-width:980px){ .hero-grid{grid-template-columns:1fr; text-align:center;} }
+  .hero-copy h1{font-size:clamp(2.2rem, 5vw, 3.6rem); font-weight:800; margin:14px 0 10px; line-height:1.08;}
+  .typing-line{font-size:clamp(1.05rem, 2vw, 1.4rem); font-weight:600; color:var(--secondary); min-height:1.8em; font-family:'JetBrains Mono', monospace;}
+  .typing-line .cursor{display:inline-block; width:2px; background:var(--secondary); margin-left:2px; animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero-copy p.lede{margin:22px 0 30px; color:var(--text-soft); max-width:560px; font-size:1.03rem;}
+  @media (max-width:980px){ .hero-copy p.lede{margin-inline:auto;} }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  @media (max-width:980px){ .hero-actions{justify-content:center;} }
+  .hero-social{display:flex; gap:16px; margin-top:34px;}
+  @media (max-width:980px){ .hero-social{justify-content:center;} }
+  .hero-social a{width:42px; height:42px; border:1px solid var(--border); border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--card); transition:.25s;}
+  .hero-social a:hover{border-color:var(--secondary); transform:translateY(-3px);}
+
+  .hero-portrait-wrap{position:relative; display:flex; justify-content:center; align-items:center; min-height:460px;}
+  .portrait-glow{
+    position:absolute; width:340px; height:340px; border-radius:50%;
+    background:var(--grad); filter:blur(70px); opacity:.4; z-index:0;
+  }
+  .portrait{
+    position:relative; z-index:1; width:300px; height:400px; border-radius:32px;
+    background:linear-gradient(160deg, #1E293B, #0F172A);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow); animation:float 6s ease-in-out infinite;
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  [data-theme="dark"] .portrait{background:linear-gradient(160deg, #1E293B, #020617);}
+  .portrait .initials{font-family:'Poppins',sans-serif; font-size:5rem; font-weight:800; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  .status-chip{
+    position:absolute; z-index:2; display:flex; align-items:center; gap:8px;
+    background:var(--card); border:1px solid var(--border); backdrop-filter:blur(12px);
+    padding:10px 14px; border-radius:14px; box-shadow:var(--shadow); font-size:.78rem; font-weight:600;
+    animation:float 5s ease-in-out infinite;
+  }
+  .status-chip .dot{width:8px; height:8px; border-radius:50%; background:#22C55E; box-shadow:0 0 0 4px rgba(34,197,94,0.18);}
+  .status-chip.c1{top:6%; left:-8%; animation-delay:.2s;}
+  .status-chip.c2{bottom:14%; left:-14%; animation-delay:1.1s;}
+  .status-chip.c3{top:14%; right:-12%; animation-delay:.6s;}
+  .status-chip.c4{bottom:2%; right:-6%; animation-delay:1.6s;}
+  @media (max-width:980px){
+    .hero-portrait-wrap{margin-top:36px;}
+    .status-chip{display:none;}
+  }
+  @media (max-width:520px){ .portrait{width:230px; height:300px;} .portrait-glow{width:250px;height:250px;} }
+
+  /* ---------- STATS ---------- */
+  .stats{padding:70px 8vw; border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .stats-grid{display:grid; grid-template-columns:repeat(6,1fr); gap:20px; text-align:center;}
+  @media (max-width:980px){ .stats-grid{grid-template-columns:repeat(3,1fr); gap:30px 16px;} }
+  @media (max-width:520px){ .stats-grid{grid-template-columns:repeat(2,1fr);} }
+  .stat-num{font-family:'Poppins',sans-serif; font-size:clamp(1.6rem,3vw,2.3rem); font-weight:800; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .stat-label{font-size:.78rem; color:var(--text-soft); margin-top:6px; font-weight:500;}
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{color:var(--text-soft); margin-bottom:16px;}
+  .about-highlights{display:grid; gap:16px;}
+  .highlight-card{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px;
+    backdrop-filter:blur(10px); display:flex; gap:14px; align-items:flex-start;
+  }
+  .highlight-card .ic{width:38px; height:38px; border-radius:10px; background:var(--grad); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:.9rem;}
+  .highlight-card h4{font-size:.98rem; margin-bottom:4px;}
+  .highlight-card p{color:var(--text-soft); font-size:.88rem; margin:0;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:44px 60px;}
+  @media (max-width:800px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-row{margin-bottom:20px;}
+  .skill-row-top{display:flex; justify-content:space-between; font-size:.9rem; font-weight:600; margin-bottom:8px;}
+  .skill-row-top span.pct{color:var(--text-soft); font-weight:500; font-family:'JetBrains Mono',monospace; font-size:.78rem;}
+  .bar-track{height:8px; border-radius:999px; background:var(--border); overflow:hidden;}
+  .bar-fill{height:100%; border-radius:999px; background:var(--grad); width:0%; transition:width 1.4s cubic-bezier(.16,1,.3,1);}
+  .tag-cluster{margin-top:36px;}
+  .tag-cluster h4{font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; color:var(--text-soft); margin-bottom:14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:9px;}
+  .tag{font-size:.78rem; padding:7px 13px; border-radius:999px; border:1px solid var(--border); background:var(--card); font-weight:500;}
+
+  /* ---------- EXPERIENCE TIMELINE ---------- */
+  .timeline{position:relative; padding-left:36px; border-left:2px solid var(--border);}
+  .tl-item{position:relative; padding-bottom:52px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{content:""; position:absolute; left:-43px; top:2px; width:14px; height:14px; border-radius:50%; background:var(--grad); box-shadow:0 0 0 5px var(--bg);}
+  .tl-item .role-row{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;}
+  .tl-item h3{font-size:1.15rem;}
+  .tl-item .period{font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--secondary); background:rgba(37,99,235,0.1); padding:3px 10px; border-radius:999px;}
+  .tl-item .org{color:var(--text-soft); font-weight:500; margin-bottom:14px; font-size:.92rem;}
+  .tl-item .duties{display:grid; grid-template-columns:repeat(2,1fr); gap:8px 20px;}
+  @media (max-width:700px){ .tl-item .duties{grid-template-columns:1fr;} }
+  .tl-item .duties li{font-size:.87rem; color:var(--text-soft); position:relative; padding-left:16px;}
+  .tl-item .duties li::before{content:"›"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+
+  /* ---------- PROJECTS ---------- */
+  .filter-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:36px;}
+  .filter-btn{padding:8px 18px; border-radius:999px; border:1px solid var(--border); background:var(--card); font-size:.82rem; font-weight:600; cursor:pointer; transition:.2s;}
+  .filter-btn.active{background:var(--grad); color:#fff; border-color:transparent;}
+  .projects-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px;}
+  @media (max-width:980px){ .projects-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .projects-grid{grid-template-columns:1fr;} }
+  .project-card{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:26px;
+    backdrop-filter:blur(10px); transition:.3s ease; display:flex; flex-direction:column; gap:12px;
+  }
+  .project-card:hover{transform:translateY(-6px); box-shadow:var(--shadow); border-color:rgba(37,99,235,0.35);}
+  .project-card .p-ic{width:44px; height:44px; border-radius:12px; background:var(--grad); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.1rem; font-weight:700;}
+  .project-card h3{font-size:1.05rem;}
+  .project-card p{color:var(--text-soft); font-size:.88rem; flex-grow:1;}
+  .project-card .cat{font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--secondary); font-weight:700;}
+  .project-card.hide{display:none;}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:980px){ .cert-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .cert-grid{grid-template-columns:1fr;} }
+  .cert-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:22px; text-align:center; backdrop-filter:blur(10px);}
+  .cert-card .badge{width:50px; height:50px; border-radius:50%; background:var(--grad); margin:0 auto 14px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem;}
+  .cert-card h4{font-size:.92rem; margin-bottom:4px;}
+  .cert-card span{font-size:.76rem; color:var(--text-soft);}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:30px; display:flex; gap:22px; align-items:flex-start; backdrop-filter:blur(10px); max-width:680px;}
+  .edu-card .p-ic{width:50px; height:50px; border-radius:12px; background:var(--grad); flex-shrink:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.3rem; font-weight:700;}
+  .edu-card h3{font-size:1.1rem; margin-bottom:4px;}
+  .edu-card .org{color:var(--text-soft); font-size:.9rem; margin-bottom:6px;}
+  .edu-card .period{font-family:'JetBrains Mono',monospace; font-size:.76rem; color:var(--secondary);}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:980px){ .services-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; backdrop-filter:blur(10px); transition:.25s;}
+  .service-card:hover{border-color:rgba(37,99,235,.35); transform:translateY(-4px);}
+  .service-card .ic{font-size:1.5rem; margin-bottom:12px;}
+  .service-card h4{font-size:.95rem; margin-bottom:6px;}
+  .service-card p{font-size:.82rem; color:var(--text-soft);}
+
+  /* ---------- WHY HIRE ---------- */
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  @media (max-width:800px){ .why-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:520px){ .why-grid{grid-template-columns:1fr;} }
+  .why-item{display:flex; gap:10px; align-items:flex-start; padding:14px; border-radius:12px; background:var(--card); border:1px solid var(--border); font-size:.88rem;}
+  .why-item .check{color:#22C55E; font-weight:800;}
+
+  /* ---------- AI ASSISTANT ---------- */
+  .ai-box{
+    background:linear-gradient(160deg, var(--primary), #1E293B); color:#fff; border-radius:28px; padding:44px;
+    position:relative; overflow:hidden;
+  }
+  [data-theme="dark"] .ai-box{background:linear-gradient(160deg, #0B1224, #020617); border:1px solid var(--border);}
+  .ai-box::after{content:""; position:absolute; width:300px; height:300px; background:var(--grad); filter:blur(90px); opacity:.35; top:-100px; right:-80px;}
+  .ai-head{display:flex; align-items:center; gap:14px; margin-bottom:22px; position:relative;}
+  .ai-avatar{width:44px; height:44px; border-radius:12px; background:var(--grad); display:flex; align-items:center; justify-content:center; font-weight:800;}
+  .ai-head h3{font-size:1.15rem;}
+  .ai-head span{font-size:.8rem; color:#94A3B8;}
+  .ai-quick{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; position:relative;}
+  .ai-quick button{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); color:#fff; padding:8px 14px; border-radius:999px; font-size:.78rem; cursor:pointer; transition:.2s;}
+  .ai-quick button:hover{background:rgba(255,255,255,0.16);}
+  .ai-log{background:rgba(0,0,0,0.22); border-radius:16px; padding:20px; min-height:120px; max-height:260px; overflow-y:auto; margin-bottom:16px; position:relative; display:flex; flex-direction:column; gap:12px;}
+  .ai-msg{font-size:.88rem; max-width:88%; padding:10px 14px; border-radius:12px; line-height:1.5;}
+  .ai-msg.user{align-self:flex-end; background:var(--grad); color:#fff; border-bottom-right-radius:2px;}
+  .ai-msg.bot{align-self:flex-start; background:rgba(255,255,255,0.08); color:#E5E7EB; border-bottom-left-radius:2px;}
+  .ai-input-row{display:flex; gap:10px; position:relative;}
+  .ai-input-row input{flex-grow:1; padding:13px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.16); background:rgba(255,255,255,0.06); color:#fff; font-family:inherit; font-size:.88rem;}
+  .ai-input-row input::placeholder{color:#64748B;}
+  .ai-input-row input:focus{outline:2px solid var(--accent); outline-offset:1px;}
+  .ai-input-row button{border:none; background:var(--grad); color:#fff; padding:0 20px; border-radius:12px; font-weight:600; cursor:pointer; font-size:.85rem;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media (max-width:900px){ .testi-grid{grid-template-columns:1fr;} }
+  .testi-card{background:var(--card); border:1px dashed var(--border); border-radius:var(--radius); padding:28px; backdrop-filter:blur(10px);}
+  .testi-card .avatar{width:44px; height:44px; border-radius:50%; background:var(--grad); opacity:.5; margin-bottom:14px;}
+  .testi-card p{color:var(--text-soft); font-size:.88rem; font-style:italic;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:50px;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-info-item{display:flex; gap:14px; align-items:center; margin-bottom:22px;}
+  .contact-info-item .ic{width:42px; height:42px; border-radius:12px; background:var(--card); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-info-item h4{font-size:.86rem; color:var(--text-soft); font-weight:500;}
+  .contact-info-item p{font-size:.96rem; font-weight:600;}
+  form.contact-form{display:grid; gap:16px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:560px){ .form-row{grid-template-columns:1fr;} }
+  .contact-form input, .contact-form textarea{
+    padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text);
+    font-family:inherit; font-size:.92rem;
+  }
+  .contact-form input:focus, .contact-form textarea:focus{outline:2px solid var(--secondary); outline-offset:1px;}
+  .contact-form textarea{resize:vertical; min-height:130px;}
+  .form-note{font-size:.78rem; color:var(--text-soft);}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--border); padding:44px 8vw; text-align:center;}
+  footer .quote{font-family:'Poppins',sans-serif; font-weight:600; font-size:1.05rem; margin-bottom:14px;}
+  footer .fine{font-size:.8rem; color:var(--text-soft);}
+
+  /* ---------- BACK TO TOP ---------- */
+  #back-to-top{
+    position:fixed; bottom:28px; right:28px; width:46px; height:46px; border-radius:50%;
+    background:var(--grad); color:#fff; border:none; cursor:pointer; z-index:900; box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center; font-size:1.1rem;
+    opacity:0; pointer-events:none; transition:opacity .3s, transform .3s;
+  }
+  #back-to-top.show{opacity:1; pointer-events:auto;}
+  #back-to-top:hover{transform:translateY(-3px);}
+
+  :focus-visible{outline:2px solid var(--secondary); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#home" class="logo">John Eric <span>Ejera</span></a>
+  <nav class="menu" id="menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#services">Services</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    <a href="#" class="btn btn-ghost btn-sm" id="resume-btn">Resume</a>
+    <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <canvas id="netcanvas"></canvas>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot-live"></span> Available for remote &amp; international IT roles</span>
+      <h1>Hi, I'm John Eric Ejera.</h1>
+      <div class="typing-line"><span id="typing-text"></span><span class="cursor">&nbsp;</span></div>
+      <p class="lede">IT Administrator and IT Support Specialist based in the Philippines with 3+ years of hands-on experience across Microsoft 365, Google Workspace, networking, cloud services, web development, and internal &amp; external technical support for businesses around the world.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary" id="resume-btn-2">⬇ Download Resume</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/john-eric-ejera-b9b3aa239/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">in</a>
+        <a href="https://github.com/MrJee2023" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">gh</a>
+        <a href="https://www.facebook.com/johnericejera" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">fb</a>
+      </div>
+    </div>
+    <div class="hero-portrait-wrap">
+      <div class="portrait-glow"></div>
+      <img src="https://drive.google.com/thumbnail?id=1nF5rAYQG-BAiUGX7lJegr2KNlsRaQbBU&sz=w2000" alt="John Eric Ejera" style="width:100%;height:100%;object-fit:cover;border-radius:32px;"> 
+      <!-- <div class="portrait"><span class="initials">JE</span></div> -->
+      <div class="status-chip c1"><span class="dot"></span> M365 Tenants · Online</div>
+      <div class="status-chip c2"><span class="dot"></span> Network Uptime · 99.9%</div>
+      <div class="status-chip c3"><span class="dot"></span> Tickets Resolved · 500+</div>
+      <div class="status-chip c4"><span class="dot"></span> Backups · Verified</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats reveal">
+  <div class="stats-grid">
+    <div><div class="stat-num" data-count="3" data-suffix="+">0</div><div class="stat-label">Years Experience</div></div>
+    <div><div class="stat-num" data-count="500" data-suffix="+">0</div><div class="stat-label">Support Tickets Resolved</div></div>
+    <div><div class="stat-num" data-count="100" data-suffix="+">0</div><div class="stat-label">M365 Users Managed</div></div>
+    <div><div class="stat-num" data-count="50" data-suffix="+">0</div><div class="stat-label">Computers Configured</div></div>
+    <div><div class="stat-num" data-count="25" data-suffix="+">0</div><div class="stat-label">Websites Managed</div></div>
+    <div><div class="stat-num" data-count="99" data-suffix="%">0</div><div class="stat-label">Client Satisfaction</div></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="section-head reveal">
+    <span class="eyebrow">About me</span>
+    <h2>Who I am</h2>
+    <p>The sole IT administrator behind a growing Australian-facing operation — wearing every hat from helpdesk to network architect.</p>
+  </div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p>I am a passionate IT professional with practical experience across Microsoft technologies, networking, cloud platforms, website administration, and business IT operations — plus a background in web development from my programming days.</p>
+      <p>Currently, I work as the sole IT Administrator for a Business Process Outsourcing (BPO) company, where I also serve as an IT Support Specialist handling both internal support for staff and external support for the company's clients. My responsibilities span the entire IT infrastructure — from user account administration and cloud management to website maintenance, network configuration, cybersecurity, and day-to-day technical support.</p>
+      <p>Being the only IT personnel has allowed me to develop strong problem-solving skills, independence, adaptability, and the ability to manage multiple projects simultaneously.</p>
+      <p>I enjoy learning new technologies and continuously improving my knowledge in cloud computing, cybersecurity, networking, automation, and AI-powered business solutions.</p>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-card"><div class="ic">M</div><div><h4>Microsoft 365 &amp; Google Workspace</h4><p>Full tenant administration — identity, licensing, security, and collaboration tools.</p></div></div>
+      <div class="highlight-card"><div class="ic">N</div><div><h4>Networking</h4><p>MikroTik &amp; Cisco configuration, VLANs, VPNs, failover, and QoS for reliable business connectivity.</p></div></div>
+      <div class="highlight-card"><div class="ic">W</div><div><h4>Web &amp; Cloud</h4><p>WordPress maintenance, integrations, and Azure-based cloud administration.</p></div></div>
+      <div class="highlight-card"><div class="ic">I</div><div><h4>IT Support — Internal &amp; External</h4><p>Frontline support for staff and clients alike: troubleshooting, onboarding, and day-to-day technical help.</p></div></div>
+      <div class="highlight-card"><div class="ic">S</div><div><h4>Solo-operator mindset</h4><p>Independent, detail-oriented, and built for environments with one IT team of one.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" style="background:var(--card-solid); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-head reveal">
+    <span class="eyebrow">Technical expertise</span>
+    <h2>Skills &amp; proficiency</h2>
+    <p>Core competency areas built through 3+ years of daily, hands-on business IT operations.</p>
+  </div>
+  <div class="skills-grid reveal">
+    <div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>Microsoft 365 Administration</span><span class="pct">Advanced</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="94"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>Networking (MikroTik / Cisco)</span><span class="pct">Advanced</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="88"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>System Administration</span><span class="pct">Advanced</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>Google Workspace</span><span class="pct">Advanced</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="86"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>Web Development (WordPress / PHP)</span><span class="pct">Proficient</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-row-top"><span>Cloud (Azure) &amp; Technical Support</span><span class="pct">Proficient</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="82"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tag-cluster reveal">
+    <h4>Microsoft 365</h4>
+    <div class="tags">
+      <span class="tag">Exchange Online</span><span class="tag">Entra ID</span><span class="tag">Teams</span><span class="tag">SharePoint Online</span><span class="tag">OneDrive for Business</span><span class="tag">Intune</span><span class="tag">Defender</span><span class="tag">Purview</span><span class="tag">Conditional Access</span><span class="tag">MFA</span>
+    </div>
+  </div>
+  <div class="tag-cluster reveal">
+    <h4>Google Workspace</h4>
+    <div class="tags">
+      <span class="tag">Admin Console</span><span class="tag">Drive / Docs / Sheets</span><span class="tag">Groups</span><span class="tag">Email Routing</span><span class="tag">Apps Script Automation</span>
+    </div>
+  </div>
+  <div class="tag-cluster reveal">
+    <h4>Networking</h4>
+    <div class="tags">
+      <span class="tag">MikroTik RouterOS</span><span class="tag">Cisco / Meraki</span><span class="tag">VLAN</span><span class="tag">DHCP / DNS / NAT</span><span class="tag">Firewall</span><span class="tag">WireGuard VPN</span><span class="tag">PCC Load Balancing</span><span class="tag">QoS &amp; Failover</span>
+    </div>
+  </div>
+  <div class="tag-cluster reveal">
+    <h4>Web Development &amp; Cloud</h4>
+    <div class="tags">
+      <span class="tag">WordPress / Elementor</span><span class="tag">PHP / Laravel</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">Azure</span><span class="tag">cPanel</span><span class="tag">XML / JobAdder Integration</span>
+    </div>
+  </div>
+  <div class="tag-cluster reveal">
+    <h4>Expertise</h4>
+    <div class="tags">
+      <span class="tag">IT Administration</span><span class="tag">IT Support (Desktop &amp; Remote)</span><span class="tag">Network Troubleshooting &amp; Configuration</span><span class="tag">MikroTik Router Configuration</span><span class="tag">PC Maintenance &amp; Hardware Repair</span><span class="tag">Domain &amp; DNS Management</span><span class="tag">GoDaddy &amp; cPanel Management</span><span class="tag">Microsoft Outlook Configuration</span><span class="tag">Google Workspace Administration</span><span class="tag">Microsoft 365 Business Premium Administration</span><span class="tag">Azure Active Directory (Azure AD)</span><span class="tag">Microsoft Intune</span><span class="tag">SharePoint Administration</span><span class="tag">Migration Manager Australia</span><span class="tag">Remote Desktop Protocol (RDP)</span><span class="tag">Web Application Development (Laravel)</span><span class="tag">Remote Monitoring and Management (RMM)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <div class="section-head reveal">
+    <span class="eyebrow">Career timeline</span>
+    <h2>Professional experience</h2>
+  </div>
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="role-row"><h3>IT Administrator</h3><span class="period">2024 – Present</span></div>
+      <div class="org">Migration Business Services (MBS) · Philippines — sole IT Administrator &amp; IT Support Specialist</div>
+      <ul class="duties">
+        <li>Manage Microsoft 365 Business Premium tenants, users &amp; licensing</li>
+        <li>Configure Teams, SharePoint Online &amp; Exchange Online</li>
+        <li>Administer Microsoft Entra ID and Google Workspace</li>
+        <li>Maintain Squarespace &amp; WordPress websites</li>
+        <li>Configure MikroTik and Cisco network equipment</li>
+        <li>Manage IT assets, PC deployment &amp; software installs</li>
+        <li>Handle email migrations and technical documentation</li>
+        <li>Apply BitLocker, OneDrive &amp; backup best practices</li>
+        <li>Provide internal support for staff and external support for clients</li>
+        <li>Assist with onboarding/offboarding and VPN configuration</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="role-row"><h3>Part-Time IT Instructor</h3><span class="period">~1 Year</span></div>
+      <div class="org">COSCA · Philippines</div>
+      <ul class="duties">
+        <li>Taught IT Fundamentals &amp; IT Service Management</li>
+        <li>Taught Human Computer Interaction</li>
+        <li>Taught IT Infrastructure &amp; Network Technology</li>
+        <li>Taught Information Systems Project Management</li>
+        <li>Prepared lesson plans, lectures &amp; assessments</li>
+        <li>Mentored students through practical lab work</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="role-row"><h3>Lead Programmer — Capstone Project</h3><span class="period">4th Year, College</span></div>
+      <div class="org">Accreditation Management System · College of Arts and Sciences, NORSU</div>
+      <ul class="duties">
+        <li>Led development of a web-based Accreditation Management System with mobile support</li>
+        <li>Built with Laravel, PHP &amp; MySQL to replace manual record-keeping</li>
+        <li>Implemented secure, role-based access control</li>
+        <li>Delivered real-time data management &amp; centralized storage</li>
+        <li>Simplified accreditation preparation across multiple academic departments</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects" style="background:var(--card-solid); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-head reveal">
+    <span class="eyebrow">Selected work</span>
+    <h2>Featured projects</h2>
+    <p>Real infrastructure, migrations, and integrations delivered for business operations.</p>
+  </div>
+  <div class="filter-row reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="m365">Microsoft 365</button>
+    <button class="filter-btn" data-filter="web">Web</button>
+    <button class="filter-btn" data-filter="network">Network</button>
+    <button class="filter-btn" data-filter="automation">Automation</button>
+    <button class="filter-btn" data-filter="backup">Backup</button>
+    <button class="filter-btn" data-filter="capstone">Capstone</button>
+  </div>
+  <div class="projects-grid reveal">
+    <div class="project-card" data-cat="m365">
+      <div class="p-ic">M</div>
+      <span class="cat">Microsoft 365</span>
+      <h3>Microsoft 365 Administration</h3>
+      <p>Managed Microsoft 365 Business Premium environments — user provisioning, licensing, Exchange Online, Teams, SharePoint, Intune, and Entra ID.</p>
+    </div>
+    <div class="project-card" data-cat="web">
+      <div class="p-ic">W</div>
+      <span class="cat">Web</span>
+      <h3>WordPress Recruitment Website</h3>
+      <p>Maintained and enhanced a recruitment website integrated with JobAdder XML feeds, with plugin management, performance and security improvements.</p>
+    </div>
+    <div class="project-card" data-cat="automation">
+      <div class="p-ic">A</div>
+      <span class="cat">Automation</span>
+      <h3>Google Workspace Automation</h3>
+      <p>Built Google Forms integrated with Sheets and Apps Script automation to trigger Discord notifications and streamline internal workflows.</p>
+    </div>
+    <div class="project-card" data-cat="network">
+      <div class="p-ic">N</div>
+      <span class="cat">Network</span>
+      <h3>Network Infrastructure Upgrade</h3>
+      <p>Configured MikroTik routers with PCC load balancing, VLAN segmentation, firewall rules, WireGuard VPN, QoS and internet failover.</p>
+    </div>
+    <div class="project-card" data-cat="network">
+      <div class="p-ic">D</div>
+      <span class="cat">Deployment</span>
+      <h3>PC Deployment &amp; Standardization</h3>
+      <p>Prepared business computers with Windows, Office, Teams, antivirus, security configurations, drivers and user profiles for deployment.</p>
+    </div>
+    <div class="project-card" data-cat="backup">
+      <div class="p-ic">B</div>
+      <span class="cat">Backup</span>
+      <h3>Backup &amp; Disaster Recovery</h3>
+      <p>Implemented BitLocker encryption, OneDrive sync, scheduled File History backups and weekly system image backups for business continuity.</p>
+    </div>
+    <div class="project-card" data-cat="capstone">
+      <div class="p-ic">C</div>
+      <span class="cat">Capstone · Laravel</span>
+      <h3>Accreditation Management System</h3>
+      <p>Developed a web-based Accreditation Management System with mobile support for the College of Arts and Sciences as lead programmer. Built with Laravel and MySQL to replace manual record-keeping, with secure role-based access, real-time data management, and centralized storage — simplifying accreditation prep across departments.</p>
+      <div class="tags" style="margin-top:2px;">
+        <span class="tag">Laravel</span><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML5</span>
+      </div>
+      <a href="https://www.upwork.com/freelancers/~01c920529e6a514a4a?p=1943510980841467904" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" style="align-self:flex-start;">View on Upwork ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications">
+  <div class="section-head reveal">
+    <span class="eyebrow">Credentials</span>
+    <h2>Certifications</h2>
+  </div>
+  <div class="cert-grid reveal">
+    <div class="cert-card"><div class="badge">✓</div><h4>Computer System Servicing NC II</h4><span>TESDA</span></div>
+    <div class="cert-card"><div class="badge">✓</div><h4>Microsoft Azure AI Essentials</h4><span>Professional Certificate</span></div>
+    <div class="cert-card"><div class="badge">✓</div><h4>Career Essentials in Cybersecurity</h4><span>Microsoft &amp; LinkedIn</span></div>
+    <div class="cert-card"><div class="badge">✓</div><h4>ServiceNow IT Leadership</h4><span>Professional Certificate</span></div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education" style="background:var(--card-solid); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-head reveal">
+    <span class="eyebrow">Academic background</span>
+    <h2>Education</h2>
+  </div>
+  <div class="edu-card reveal">
+    <div class="p-ic">🎓</div>
+    <div>
+      <h3>Bachelor of Science in Information Technology</h3>
+      <div class="org">Negros Oriental State University (NORSU) — Main Campus</div>
+      <div class="period">Graduated 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="section-head reveal">
+    <span class="eyebrow">What I offer</span>
+    <h2>Services</h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card"><div class="ic">🧩</div><h4>Microsoft 365 Administration</h4><p>Tenant setup, users, licensing, security policies.</p></div>
+    <div class="service-card"><div class="ic">🗂️</div><h4>Google Workspace Administration</h4><p>Admin console, groups, automation.</p></div>
+    <div class="service-card"><div class="ic">🌐</div><h4>Network Configuration</h4><p>MikroTik, Cisco, VPN, VLANs, failover.</p></div>
+    <div class="service-card"><div class="ic">🖥️</div><h4>WordPress Development</h4><p>Builds, integrations &amp; maintenance.</p></div>
+    <div class="service-card"><div class="ic">🔧</div><h4>Website Maintenance</h4><p>Updates, performance &amp; security.</p></div>
+    <div class="service-card"><div class="ic">🎧</div><h4>IT Support Specialist</h4><p>Internal (staff) &amp; external (client) technical support.</p></div>
+    <div class="service-card"><div class="ic">☁️</div><h4>Cloud Administration</h4><p>Azure infrastructure &amp; identity.</p></div>
+    <div class="service-card"><div class="ic">🛡️</div><h4>Cybersecurity Best Practices</h4><p>MFA, conditional access, backups.</p></div>
+  </div>
+</section>
+
+<!-- ================= WHY HIRE ME ================= -->
+<section style="background:var(--card-solid); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-head reveal">
+    <span class="eyebrow">Why work with me</span>
+    <h2>Why hire me</h2>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item"><span class="check">✓</span> Strong analytical &amp; troubleshooting skills</div>
+    <div class="why-item"><span class="check">✓</span> Excellent communication</div>
+    <div class="why-item"><span class="check">✓</span> Fast learner</div>
+    <div class="why-item"><span class="check">✓</span> Detail-oriented</div>
+    <div class="why-item"><span class="check">✓</span> Reliable</div>
+    <div class="why-item"><span class="check">✓</span> Self-motivated</div>
+    <div class="why-item"><span class="check">✓</span> Independent worker</div>
+    <div class="why-item"><span class="check">✓</span> Professional attitude</div>
+    <div class="why-item"><span class="check">✓</span> Strong documentation skills</div>
+    <div class="why-item"><span class="check">✓</span> Business-focused mindset</div>
+    <div class="why-item"><span class="check">✓</span> Experience with Australian businesses</div>
+    <div class="why-item"><span class="check">✓</span> Works independently &amp; collaboratively</div>
+  </div>
+</section>
+
+<!-- ================= ASK JOHN AI ================= -->
+<section id="ask-john">
+  <div class="section-head reveal">
+    <span class="eyebrow">Interactive</span>
+    <h2>Ask John — AI Assistant</h2>
+    <p>Ask about my experience, skills, or services. Answers are generated from the information on this page.</p>
+  </div>
+  <div class="ai-box reveal">
+    <div class="ai-head">
+      <div class="ai-avatar">JE</div>
+      <div><h3>Ask John AI</h3><span>Trained only on this portfolio's content</span></div>
+    </div>
+    <div class="ai-quick">
+      <button data-q="experience">Tell me about your experience</button>
+      <button data-q="skills">What are your top skills?</button>
+      <button data-q="services">What services do you offer?</button>
+      <button data-q="contact">How can I contact you?</button>
+      <button data-q="capstone">Tell me about your capstone project</button>
+    </div>
+    <div class="ai-log" id="ai-log">
+      <div class="ai-msg bot">Hi, I'm a small assistant trained on John's portfolio. Ask me about his experience, skills, certifications, or services!</div>
+    </div>
+    <div class="ai-input-row">
+      <input type="text" id="ai-input" placeholder="Ask a question about John..." aria-label="Ask a question">
+      <button id="ai-send">Send</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section style="background:var(--card-solid); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="section-head reveal">
+    <span class="eyebrow">Client feedback</span>
+    <h2>Testimonials</h2>
+    <p>Reserved for future client testimonials.</p>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi-card"><div class="avatar"></div><p>"Testimonial coming soon."</p></div>
+    <div class="testi-card"><div class="avatar"></div><p>"Testimonial coming soon."</p></div>
+    <div class="testi-card"><div class="avatar"></div><p>"Testimonial coming soon."</p></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="section-head reveal">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Contact</h2>
+    <p>Based in the Philippines — open to remote IT administration roles and projects.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="contact-info-item"><div class="ic">✉</div><div><h4>Email</h4><p><a href="mailto:ejerajohneric@gmail.com">ejerajohneric@gmail.com</a></p></div></div>
+      <div class="contact-info-item"><div class="ic">☎</div><div><h4>Phone</h4><p><a href="tel:+639367765934">+63 936 7765 934</a></p></div></div>
+      <div class="contact-info-item"><div class="ic">📍</div><div><h4>Location</h4><p>Philippines · open to remote &amp; international roles</p></div></div>
+      <div class="contact-info-item"><div class="ic">in</div><div><h4>LinkedIn</h4><p><a href="https://www.linkedin.com/in/john-eric-ejera-b9b3aa239/" target="_blank" rel="noopener">john-eric-ejera</a></p></div></div>
+      <div class="contact-info-item"><div class="ic">gh</div><div><h4>GitHub</h4><p><a href="https://github.com/MrJee2023" target="_blank" rel="noopener">MrJee2023</a></p></div></div>
+      <div class="contact-info-item"><div class="ic">fb</div><div><h4>Facebook</h4><p><a href="https://www.facebook.com/johnericejera" target="_blank" rel="noopener">johnericejera</a></p></div></div>
+    </div>
+    <form class="contact-form reveal" id="contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+      </div>
+      <input type="text" name="subject" placeholder="Subject">
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit" class="btn btn-primary" style="justify-self:start;">Send Message</button>
+      <p class="form-note">This opens your email app with the message pre-filled to ejerajohneric@gmail.com.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p class="quote">"Technology is best when it empowers people."</p>
+  <p class="fine">© <span id="year"></span> John Eric Ejera. All Rights Reserved. Designed and Developed by John Eric Ejera.</p>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Theme toggle (in-memory, no localStorage) */
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', () => {
+  const root = document.documentElement;
+  const isDark = root.getAttribute('data-theme') === 'dark';
+  root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeToggle.textContent = isDark ? '🌙' : '☀️';
+});
+
+/* Mobile nav */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+/* Resume buttons — placeholder alert until a real file is linked */
+['resume-btn','resume-btn-2'].forEach(id=>{
+  document.getElementById(id).addEventListener('click', (e)=>{
+    e.preventDefault();
+    alert('Add a link to your resume PDF on this button (href of #resume-btn / #resume-btn-2).');
+  });
+});
+
+/* Typing animation */
+const titles = ["IT Administrator","IT Support Specialist","Microsoft 365 Administrator","System Administrator","Network Administrator","Technical Support Specialist","Cloud Administrator","WordPress Developer","Google Workspace Administrator","Microsoft 365 Specialist","IT Infrastructure Engineer"];
+const typingEl = document.getElementById('typing-text');
+let tIndex = 0, cIndex = 0, deleting = false;
+function typeLoop(){
+  const current = titles[tIndex];
+  if(!deleting){
+    cIndex++;
+    typingEl.textContent = current.slice(0, cIndex);
+    if(cIndex === current.length){ deleting = true; setTimeout(typeLoop, 1400); return; }
+  } else {
+    cIndex--;
+    typingEl.textContent = current.slice(0, cIndex);
+    if(cIndex === 0){ deleting = false; tIndex = (tIndex+1) % titles.length; }
+  }
+  setTimeout(typeLoop, deleting ? 35 : 65);
+}
+typeLoop();
+
+/* Scroll reveal */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){ entry.target.classList.add('in'); revealObserver.unobserve(entry.target); }
+  });
+}, {threshold:0.15});
+revealEls.forEach(el=>revealObserver.observe(el));
+
+/* Stat counters */
+const statEls = document.querySelectorAll('.stat-num');
+const statObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      let cur = 0;
+      const step = Math.max(1, Math.round(target/60));
+      const iv = setInterval(()=>{
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(iv); }
+        el.textContent = cur + suffix;
+      }, 20);
+      statObserver.unobserve(el);
+    }
+  });
+}, {threshold:0.4});
+statEls.forEach(el=>statObserver.observe(el));
+
+/* Skill bars */
+const barEls = document.querySelectorAll('.bar-fill');
+const barObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.width = entry.target.dataset.width + '%';
+      barObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.4});
+barEls.forEach(el=>barObserver.observe(el));
+
+/* Project filtering */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    projectCards.forEach(card=>{
+      card.classList.toggle('hide', f !== 'all' && card.dataset.cat !== f);
+    });
+  });
+});
+
+/* Back to top */
+const backBtn = document.getElementById('back-to-top');
+window.addEventListener('scroll', ()=>{
+  backBtn.classList.toggle('show', window.scrollY > 500);
+});
+backBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+/* Contact form -> mailto */
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = e.target;
+  const subject = encodeURIComponent(f.subject.value || 'Portfolio inquiry from ' + f.name.value);
+  const body = encodeURIComponent(f.message.value + '\n\n— ' + f.name.value + ' (' + f.email.value + ')');
+  window.location.href = `mailto:ejerajohneric@gmail.com?subject=${subject}&body=${body}`;
+});
+
+/* Ask John AI — simple keyword-matched Q&A over portfolio content */
+const knowledgeBase = [
+  { keys:['experience','years','background','career'], a:"John has 3+ years of hands-on IT experience. He's currently the sole IT Administrator and IT Support Specialist (internal & external) at Migration Business Services (MBS) since 2024, previously spent about a year as a part-time IT Instructor at COSCA, and led a Laravel-based capstone project as a programmer in college." },
+  { keys:['skill','skills','good at','expert'], a:"John's core strengths are Microsoft 365 administration, Google Workspace, networking (MikroTik/Cisco), system administration, IT support (internal & external), web development (Laravel, PHP, WordPress, MySQL), and Azure cloud administration." },
+  { keys:['service','services','offer','hire'], a:"John offers Microsoft 365 & Google Workspace administration, network configuration, web development (WordPress & Laravel), internal/external IT support, cloud administration, and cybersecurity best practices." },
+  { keys:['contact','email','phone','reach'], a:"You can reach John at ejerajohneric@gmail.com, by phone/WhatsApp at +63 936 7765 934, or through the contact form on this page — he's based in the Philippines and open to remote & international roles." },
+  { keys:['certification','certificate','certified'], a:"John holds Computer System Servicing NC II (TESDA), Microsoft Azure AI Essentials, Career Essentials in Cybersecurity (Microsoft & LinkedIn), and a ServiceNow IT Leadership Professional Certificate." },
+  { keys:['education','degree','school','university'], a:"John holds a Bachelor of Science in Information Technology from Negros Oriental State University (NORSU), graduated 2023." },
+  { keys:['project','projects','built','work'], a:"Recent projects include Microsoft 365 tenant administration, a WordPress recruitment site with JobAdder XML integration, Google Workspace automation with Apps Script, a MikroTik network overhaul, PC deployment standardization, backup & disaster recovery, and his college capstone: a Laravel-based Accreditation Management System." },
+  { keys:['capstone','laravel','accreditation','thesis'], a:"As a 4th-year student, John was the lead programmer on a web-based Accreditation Management System with mobile support for the College of Arts and Sciences — built with Laravel and MySQL, featuring role-based access and real-time data management. See it on his Upwork profile." },
+  { keys:['network','mikrotik','cisco','vlan'], a:"John configures MikroTik and Cisco/Meraki networks — VLANs, DHCP/DNS/NAT, firewalls, WireGuard VPN, PCC load balancing, QoS, and internet failover." },
+  { keys:['microsoft 365','m365','office 365'], a:"John manages Microsoft 365 Business Premium environments end-to-end: Exchange Online, Teams, SharePoint, OneDrive, Intune, Entra ID, Defender, Purview, Conditional Access and MFA." },
+  { keys:['location','based','philippines','where'], a:"John is based in the Philippines and works remotely for businesses internationally." },
+  { keys:['support specialist','it support','helpdesk'], a:"John works as an IT Support Specialist handling both internal support (for staff) and external support (for clients), covering troubleshooting, onboarding, hardware/software issues, and day-to-day technical help." },
+];
+function askJohn(question){
+  const q = question.toLowerCase();
+  const hit = knowledgeBase.find(k => k.keys.some(key => q.includes(key)));
+  return hit ? hit.a : "I don't have that in John's portfolio yet — try asking about his experience, skills, certifications, projects, or how to contact him.";
+}
+const aiLog = document.getElementById('ai-log');
+function pushMsg(text, cls){
+  const div = document.createElement('div');
+  div.className = 'ai-msg ' + cls;
+  div.textContent = text;
+  aiLog.appendChild(div);
+  aiLog.scrollTop = aiLog.scrollHeight;
+}
+function handleAsk(text){
+  if(!text.trim()) return;
+  pushMsg(text, 'user');
+  setTimeout(()=> pushMsg(askJohn(text), 'bot'), 350);
+}
+document.getElementById('ai-send').addEventListener('click', ()=>{
+  const input = document.getElementById('ai-input');
+  handleAsk(input.value);
+  input.value = '';
+});
+document.getElementById('ai-input').addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter'){
+    const input = e.target;
+    handleAsk(input.value);
+    input.value = '';
+  }
+});
+document.querySelectorAll('.ai-quick button').forEach(btn=>{
+  btn.addEventListener('click', ()=> handleAsk(btn.textContent));
+});
+
+// ---------- Network canvas background (signature element) ----------
+const canvas = document.getElementById('netcanvas');
+const ctx = canvas.getContext('2d');
+let w, h, nodes = [];
+const NODE_COUNT = 46;
+const LINK_DIST = 150;
+
+function resize(){
+  w = canvas.width = canvas.offsetWidth;
+  h = canvas.height = canvas.offsetHeight;
+}
+function initNodes(){
+  nodes = Array.from({length:NODE_COUNT}, () => ({
+    x: Math.random()*w,
+    y: Math.random()*h,
+    vx: (Math.random()-0.5)*0.35,
+    vy: (Math.random()-0.5)*0.35
+  }));
+}
+function getLineColor(){
+  return document.documentElement.getAttribute('data-theme') === 'dark'
+    ? 'rgba(6,182,212,0.35)' : 'rgba(37,99,235,0.22)';
+}
+function getNodeColor(){
+  return document.documentElement.getAttribute('data-theme') === 'dark'
+    ? '#06B6D4' : '#2563EB';
+}
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  for(let i=0;i<nodes.length;i++){
+    const a = nodes[i];
+    a.x += a.vx; a.y += a.vy;
+    if(a.x < 0 || a.x > w) a.vx *= -1;
+    if(a.y < 0 || a.y > h) a.vy *= -1;
+    for(let j=i+1;j<nodes.length;j++){
+      const b = nodes[j];
+      const dx = a.x-b.x, dy = a.y-b.y;
+      const dist = Math.sqrt(dx*dx+dy*dy);
+      if(dist < LINK_DIST){
+        ctx.strokeStyle = getLineColor();
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 1 - dist/LINK_DIST;
+        ctx.beginPath();
+        ctx.moveTo(a.x,a.y);
+        ctx.lineTo(b.x,b.y);
+        ctx.stroke();
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+  nodes.forEach(n => {
+    ctx.fillStyle = getNodeColor();
+    ctx.beginPath();
+    ctx.arc(n.x,n.y,2.2,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+window.addEventListener('resize', () => { resize(); initNodes(); });
+resize(); initNodes(); draw();
+</script>
+</body>
+</html>
